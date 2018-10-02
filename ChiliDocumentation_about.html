@@ -1,0 +1,96 @@
+<!doctype html>
+<title>Chili Documentation</title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+	.page_title{
+		position:fixed;
+		width:100%;
+		height:10%;
+		background-color:#fc8507;
+	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+	}
+
+	li {
+		float: left;
+	}
+
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+
+	li a:hover {
+		cursor:pointer;
+		background-color: #111;
+	}
+	
+	.section{
+		border-style:double;
+	}
+	
+	.container{
+		position:fixed;
+		height:85%;
+		bottom:0%;
+		display:block;
+		width:100%;
+		overflow:scroll;
+	}
+	.ui-content{
+		padding:3px;
+	}
+	
+	.main_navi{
+		cursor:pointer;
+		margin-left:50px;
+		color:black;
+	}
+	
+	.main_navi:hover{
+		cursor:pointer;
+		background-color: #CC6633;
+	}
+	</style>
+</head>
+	
+
+<body>
+<div class="page_title"><h2 style="color:black">Chili Documentation <a class="main_navi" style="color:black" onclick="home()">Home</a><a class="main_navi" style="color:black" onclick="functions()">Functions</a><a class="main_navi" style="color:black" onclick="start()">Getting Started</a><a class="main_navi" style="color:black" onclick="about()">About</a></h2></div>
+	<h1>ABOUT</h1>
+	<div class="container">
+		TODO
+	</div>
+	
+	
+	<script>
+		function scroll_to(id){
+			document.getElementById(id).scrollIntoView();
+		}
+		function home(){
+			location.href = "./ChiliDocumentation_home.html"
+		}
+		function functions(){
+			location.href = "./ChiliDocumentation_functions.html"
+		}
+		function about(){
+			location.href = "./ChiliDocumentation_about.html"
+		}
+		function start(){
+			location.href = "./ChiliDocumentation_gettingstarted.html"
+		}
+	</script>
+</body>
+</html>

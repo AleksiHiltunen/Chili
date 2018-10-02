@@ -1,0 +1,327 @@
+<!doctype html>
+<title>Chili Documentation</title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+	.page_title{
+		position:fixed;
+		width:100%;
+		height:10%;
+		background-color:#fc8507;
+	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+	}
+
+	li {
+		float: left;
+	}
+
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+
+	li a:hover {
+		cursor:pointer;
+		background-color: #111;
+	}
+	
+	.section{
+		border-style:double;
+	}
+	
+	.container{
+		position:fixed;
+		height:85%;
+		bottom:0%;
+		display:block;
+		width:100%;
+		overflow:scroll;
+	}
+	.ui-content{
+		padding:3px;
+	}
+	
+	.main_navi{
+		cursor:pointer;
+		margin-left:50px;
+		color:black;
+	}
+	
+	.main_navi:hover{
+		cursor:pointer;
+		background-color: #CC6633;
+	}
+	</style>
+</head>
+	
+
+<body>
+<div class="page_title"><h2 style="color:black">Chili Documentation <a class="main_navi" style="color:black" onclick="home()">Home</a><a class="main_navi" style="color:black" onclick="functions()">Functions</a><a class="main_navi" style="color:black" onclick="start()">Getting Started</a><a class="main_navi" style="color:black" onclick="about()">About</a></h2>		<ul>
+			<li><a onclick="scroll_to('system')" style="color:white">System</a><li>
+			<li><a onclick="scroll_to('motion')" style="color:white">Motion</a></li>
+			<li><a onclick="scroll_to('speech')" style="color:white">Speech</a></li>
+			<li><a onclick="scroll_to('camera')" style="color:white">Camera</a></li>
+			<li><a onclick="scroll_to('leds')" style="color:white">LEDs</a></li>
+			<li><a onclick="scroll_to('tablet')" style="color:white">Tablet</a></li>
+			<li><a onclick="scroll_to('sound')" style="color:white">Sound</a></li>
+		</ul>
+	</div>
+	<div class="container">
+		<h1>Functions</h1>
+		<div class="section">
+			<h1 id="system">System</h1>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Exit Chili</h1>
+					<h3>Description</h3><p>Command to quit the current Chili program
+					<h3>Command options</h3><p>exit<br>quit<br>end
+					<h3>Parameters</h3><p>-
+					<h3>Example(s)</h3><p>()o_o) exit</p>
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Run Script</h1>
+					<h3>Description</h3><p>Command to run premade scripts on an active robot. Script files are recommended to be .txt files.
+					<h3>Command options</h3><p>script
+					<h3>Parameters</h3><p>Complete path to the script file
+					<h3>Example(s)</h3><p>()o_o) script C:\temp\script.txt</p>
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Autonomous Life</h1>
+					<h3>Description</h3><p>Robots autonomous life is the setting when it moves as it speaks or idles. Autonomous life setting has a few levels of activity
+					<h3>Command options</h3><p>autolife<br>auto_life<br>autonomous_life
+					<h3>Parameters</h3><p>disabled / contextual / solitary
+					<h3>Example(s)</h3><p>()o_o) autolife disabled</p>
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Wait</h1>
+					<h3>Description</h3><p>Wait command to do nothing before starting to execute next command.
+					<h3>Command options</h3><p>wait
+					<h3>Parameters</h3><p>Wait time in seconds
+					<h3>Example(s)</h3><p>()o_o) wait 5</p>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<h1 id="motion">Motion</h1>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Move</h1>
+					<h3>Description</h3><p>Command to move a robot in x and y directions and degrees around its axis.
+					<h3>Command options</h3><p>move<br>walk
+					<h3>Parameters</h3><p>forward=meters<br>back=meters<br>left=meters<br>right=meters<br>clockwise=degrees<br>counterclockwise=degrees<br>
+					<h3>Example(s)</h3><p>()o_o) move forward=1<br>()o_o) walk left=0.4<br>()o_o) move back=2 clockwise=180</p>
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Dance</h1>
+					<h3>Description</h3><p>Command to make robot dance a known dance.
+					<h3>Command options</h3><p>dance
+					<h3>Parameters</h3><p>Name of the dance<br>Installed dances: flossing, ymca, disco, wave
+					<h3>Example(s)</h3><p>()o_o) dance disco
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Animation</h1>
+					<h3>Description</h3><p>Command to make robot perform a random animation of given animation tag. Animation tags are predenifed and each tag contain one or several different animations
+					<h3>Animation tags</h3><img src="animations.png"/>
+					<h3>Command options</h3><p>animation
+					<h3>Parameters</h3><p>Tag
+					<h3>Example(s)</h3><p>()o_o) animation happy<br>()o_o) animation uncomfortable
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Exploration</h1>
+					<h3>Description</h3><p>Command to make a robot walk or wander around without a destination. Robot will stop moving if there are obstacles preventing its movement or limit is reached
+					<h3>Command options</h3><p>wander<br>explore<br>move_around
+					<h3>Parameters</h3><p>Radius limit in meters
+					<h3>Example(s)</h3><p>()o_o) explore 5<br>()o_o) move_around 100
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Stop</h1>
+					<h3>Description</h3><p>Stops current movement
+					<h3>Command options</h3><p>stop<br>seize<br>halt<br>freeze
+					<h3>Parameters</h3><p>-
+					<h3>Example(s)</h3><p>()o_o) stop
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Posture</h1>
+					<h3>Description</h3><p>Command to change posture of a robot
+					<h3>Command options</h3><p>posture<br>take_posture<br>go_to_posture
+					<h3>Parameters</h3><p>Name of predefined posture
+					<h3>Example(s)</h3><p>()o_o) posture Crouch<br>()o_o) posture StandZero
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Joints</h1>
+					<h3>Description</h3>Command to manipulate robots joints(left arm, right arm, head)<p>
+					<h3>Command options</h3><p>joint<br>rotate
+					<h3>Parameters</h3><p>joint name=position<br>joints:<br>
+											larm(left arm)<br>rarm(right arm)<br>head<br><br>
+											positions:<br>
+											up, side, front, side_elbow_bend
+					<h3>Example(s)</h3><p>()o_o) rotate head=left<br>()o_o) joint larm=up
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<h1 id="speech">Speech</h1>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Speak</h1>
+					<h3>Description</h3><p>Command to make robot speak out sentences or words
+					<h3>Command options</h3><p>say<br>speak
+					<h3>Parameters</h3><p>sentence
+					<h3>Example(s)</h3><p>()o_o) say hello world!<br>()o_o) speak I am Pepper, a humanoid robot
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Language</h1>
+					<h3>Description</h3><p>Command to change current spoken language
+					<h3>Command options</h3><p>language
+					<h3>Parameters</h3><p>One of the following: Finnish / English / French
+					<h3>Example(s)</h3><p>()o_o) language English
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Volume</h1>
+					<h3>Description</h3><p>Command to change spoken volume. Parameter is the percentage of the maximum volume
+					<h3>Command options</h3><p>volume
+					<h3>Parameters</h3><p>0-100
+					<h3>Example(s)</h3><p>()o_o) volume 50<br>()o_o) volume 0
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<h1 id="camera">Camera</h1>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Take Picture</h1>
+					<h3>Description</h3><p>Command to capture a photo using robots forehead camera. Picture is saved in robots memory. If picture identifier already exists in robots memory, it will be overwritten.
+					<h3>Command options</h3><p>picture<br>shoot<br>photo<br>take_picture
+					<h3>Parameters</h3><p>Picture identifier
+					<h3>Example(s)</h3><p>()o_o) photo image.jpg<br>()o_o) picture new_photo.jpg
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<h1 id="leds">LEDs</h1>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>LEDs On</h1>
+					<h3>Description</h3><p>Command to manipulate the LEDs on Pepper.
+					<h3>Command options</h3><p>leds_on<br>turn_on<br>turn_on_leds<br>illuminate<br>lights_on
+					<h3>Parameters</h3><p>One of the following: face / all / ears / chest
+					<h3>Example(s)</h3><p>()o_o) turn_on ears<br>()o_o) leds_on all
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>LEDs Off</h1>
+					<h3>Description</h3><p>Command to manipulate the LEDs on Pepper.
+					<h3>Command options</h3><p><p>leds_off<br>turn_off<br>turn_off_leds<br>lights_off
+					<h3>Parameters</h3><p>One of the following: face / all / ears / chest
+					<h3>Example(s)</h3><p>()o_o) turn_off ears<br>()o_o) leds_off all
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Random Eyes</h1>
+					<h3>Description</h3>Command to make Peppers eye LEDs rotate for specific amount of seconds<p>
+					<h3>Command options</h3><p>random_eyes<br>rotate_eyes<br>eyes_roll
+					<h3>Parameters</h3><p>Time in seconds
+					<h3>Example(s)</h3><p>()o_o) random_eyes 10
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<h1 id="tablet">Tablet</h1>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Show Image On Tablet</h1>
+					<h3>Description</h3><p>Command to display a image on Peppers tablet. If image is not found, shows black
+					<h3>Command options</h3><p>show<br>image<br>show_image<br>picture
+					<h3>Parameters</h3><p>name of the image
+					<h3>Example(s)</h3><p>()o_o) show picture1.jpg<br>()o_o) show_image pepper.jpg
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Show Web Page On Tablet</h1>
+					<h3>Description</h3><p>Command to display a webpage on Peppers tablet. Parameter is the url of the webpage
+					<h3>Command options</h3><p>website<br>webpage
+					<h3>Parameters</h3><p>url
+					<h3>Example(s)</h3><p>()o_o) website www.google.com<br>()o_o) website www.students.tut.fi/~hiltunet/ChiliDocumentation_functions.html
+				</div>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Turn Tablet On/Off</h1>
+					<h3>Description</h3><p>Command to turn tablet on or off
+					<h3>Command options</h3><p>tablet<br>display<br>monitor
+					<h3>Parameters</h3><p>on / off
+					<h3>Example(s)</h3><p>()o_o) tablet off
+				</div>
+			</div>
+		</div>
+		<div class="section" target="sound">
+			<h1 od="sound">Sound</h1>
+			<div data-role="main" class="ui-content">
+				<div data-role="collapsible">
+					<h1>Sound</h1>
+					<h3>Description</h3><p>Command to play a sound file from Peppers speakers. File has to be in Peppers filesystem
+					<h3>Command options</h3><p>play<br>play_sound<br>play_file
+					<h3>Parameters</h3><p>Name of the file
+					<h3>Example(s)</h3><p>()o_o) play /home/nao/wav/whistle.wav
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script>
+		function scroll_to(id){
+			document.getElementById(id).scrollIntoView();
+		}
+		function home(){
+			location.href = "./ChiliDocumentation_home.html"
+		}
+		function functions(){
+			location.href = "./ChiliDocumentation_functions.html"
+		}
+		function about(){
+			location.href = "./ChiliDocumentation_about.html"
+		}
+		function start(){
+			location.href = "./ChiliDocumentation_gettingstarted.html"
+		}
+	</script>
+</body>
+</html>
