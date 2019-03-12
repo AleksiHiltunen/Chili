@@ -10,18 +10,10 @@ current_dir = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(current_dir, "robot_broker"))
 
 import Robot
+import Logger
 
-help_text = {
-	"say":"say <>",
-	"speak":"speak <>",
-	"listen":"listen <array_of_words_to_expoect> <visual_expression_when_word_recognized>",
-	"detect":"detect <array_of_words_to_expoect> <visual_expression_when_word_recognized>",
-	"move":"move <foward/backward/left/rigth/clockwise/counterclockwise]=value>",
-	"walk":"walk <foward/backward/left/rigth/clockwise/counterclockwise]=value>",
-	"unknown":"Not known command",
-	"play":"play <path_to_file>"
-}
-	
+l = ""
+
 def _print_help(issue):
 	for _i, cmds in commands.items():
 		if issue in cmds[0]:
@@ -63,6 +55,7 @@ def _set_volume(r, vol):
 	r.set_vol(vol)
 	
 def _exec_script(r, args):
+	os.system("pwd")
 	try:
 		for item in args:
 			parse_script(r, str(item))
@@ -185,17 +178,20 @@ def parse_script(r, file):
 	
 	data = data.splitlines()
 	for line in data:
+		l.log("script line: " + line)
 		line = line.split(" ")
 		command_handler(r, line)
 			
-def real_time_command(r):
+def real_time_command(r, l):
 	cmd = ""
 	while True:
 		cmd = raw_input("()o_o) ")
+		l.log("()o_o) " + cmd)
 		cmd = cmd.split(" ")
 		command_handler(r, cmd)
 		
 def main(args):
+	global l
 	parser = argparse.ArgumentParser(description='Robot Broker')
 	parser.add_argument("-A", "--ip", help="IP address of the robot. Defaults to 192.168.1.101", default="192.168.1.101")
 	parser.add_argument("-P", "--port", help="Port of the Robot. Defaults to 9559", default="9559")
@@ -203,7 +199,9 @@ def main(args):
 	parsed_args = parser.parse_args()
 	
 	try:
-		r = Robot.Robot(parsed_args.ip, parsed_args.port)
+		l = Logger.Logger("../log.log")
+		r = Robot.Robot(l, parsed_args.ip, parsed_args.port)
+		r.say("connected")
 	except Exception as e:
 		print "Failed to initiate robot", e
 		return 1
@@ -211,7 +209,7 @@ def main(args):
 	if parsed_args.script != None:
 		parse_script(r, parsed_args.script)
 	else:
-		real_time_command(r)
+		real_time_command(r, l)
 	
 if __name__ == "__main__":
 	main(sys.argv)

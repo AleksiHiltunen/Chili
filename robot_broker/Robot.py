@@ -26,9 +26,9 @@ import Logger
 import qi
 
 class Robot:
-	def __init__(self, ip="192.168.1.101", port=9559):
+	def __init__(self, logger, ip="192.168.1.101", port=9559 ):
 		try:
-			self.logger = Logger.Logger("../log.log")
+			self.logger = logger
 			self.logger.log("Initiating Robot")
 			self.ip = ip
 			self.port = port
@@ -37,23 +37,57 @@ class Robot:
 			self.session.connect("tcp://" + self.ip + ":" + str(self.port))
 			
 			#initialize robot abilities
-			self._audio = audio_module.Audio(self.session, self.logger)
-			self._say = speak_module.Say(self.session, self.logger)
-			self._motion = motion_module.Motion(self.session, self.logger)
-			self._posture = posture_module.Posture(self.session, self.logger)
-			self._autolife = autonomouslife_module.AutonomousLife(self.session, self.logger)
-			self._leds = leds_module.Leds(self.session, self.logger)
-			self._navigation = navigation_module.Navigation(self.session, self.logger)
-			self._animation = animation_module.Animation(self.session, self.logger)
-			
+			try:
+				self._audio = audio_module.Audio(self.session, self.logger)
+			except Exception as e:
+				print(e)
+			try:
+				self._say = speak_module.Say(self.session, self.logger)
+			except Exception as e:
+				print(e)
+			try:
+				self._motion = motion_module.Motion(self.session, self.logger)
+			except Exception as e:
+				print(e)
+			try:
+				self._posture = posture_module.Posture(self.session, self.logger)
+			except Exception as e:
+				print(e)
+			try:
+				self._autolife = autonomouslife_module.AutonomousLife(self.session, self.logger)
+			except Exception as e:
+				print(e)
+			try:
+				self._leds = leds_module.Leds(self.session, self.logger)
+			except Exception as e:
+				print(e)
+			try:
+				self._navigation = navigation_module.Navigation(self.session, self.logger)
+			except Exception as e:
+				print(e)
+			try:
+				self._animation = animation_module.Animation(self.session, self.logger)
+			except Exception as e:
+				print(e)
 			#Following abilities do not work properly or at all with virtual robot so they are not initiated to avoid exceptions
 			#"localhost" indicates directly to virtual robot
 			if self.ip != "localhost":
-				self._camera = camera_module.Camera(self.session, self.logger)
-				self._listen = listen_module.Listen(self.session, self.logger)
-				self._tablet = tablet_module.Tablet(self.session, self.logger)
-				self._recharge = recharge_module.Recharge(self.session, self.logger)
-				
+				try:
+					self._camera = camera_module.Camera(self.session, self.logger)
+				except Exception as e:
+					print(e)
+				try:
+					self._listen = listen_module.Listen(self.session, self.logger)
+				except Exception as e:
+					print(e)
+				try:
+					self._tablet = tablet_module.Tablet(self.session, self.logger)
+				except Exception as e:
+					print(e)
+				try:
+					self._recharge = recharge_module.Recharge(self.session, self.logger)
+				except Exception as e:
+					print(e)
 				
 			else:
 				self.logger.log("Not initiating certain features since virtual robot is used")

@@ -1,0 +1,10 @@
+say hello, this is catwalk
+move forward=0.5
+animation hello
+move clockwise=45
+animation happy
+move counterclockwise=90
+animation cool
+move clockwise=225
+move forward=0.5
+posture crouch
