@@ -2,29 +2,27 @@
 ##########   HOW TO USE MIDDLEWARE ON PEPPER   ###################
 ##################################################################
 
-Middleware latest version in: https://gitlab.tut.fi/TIE/human-centered-robotics/common/pepper-apps/tree/aleksi_dev/dippatyo
 git clone this repo or direct download
-Middleware is in "dippatyo"-folder inside pepper-apps (pepper-apps/dippatyo)
 
 #Used in PC without Choregraphe
-	You need:
+	Requirements:
 		*Python 2.7
 		*NAOqi Python SDK
 	
 	Setting up:
-		- copy the "dippatyo"-folder to <path_to_python_2.7>/Lib/
+		- copy the "chili"-folder to <path_to_python_2.7>/Lib/
 		- make sure there is: 	<path_to_python_2.7>/Lib/site-packages/qi 
 								<path_to_python_2.7>/Lib/site-packages/naoqi.py
 	
 	Using:
 		- help:
-			command prompt: python <path_to_python_2.7>/Lib/dippatyo/middleware.py --help
+			command prompt: python <path_to_python_2.7>/Lib/chili/middleware.py --help
 		- run middleware interpreter:
-			command prompt: python <path_to_python_2.7>/Lib/dippatyo/middleware.py
+			command prompt: python <path_to_python_2.7>/Lib/chili/middleware.py
 		- run middleware interpreter with certain ip and port:
-			command prompt: python <path_to_python_2.7>/Lib/dippatyo/middleware.py --ip <ip_address> --port <port>
+			command prompt: python <path_to_python_2.7>/Lib/chili/middleware.py --ip <ip_address> --port <port>
 		- run middleware with scirpt:
-			command prompt: python <path_to_python_2.7>/Lib/dippatyo/middleware.py --script <path_to_the_script>
+			command prompt: python <path_to_python_2.7>/Lib/chili/middleware.py --script <path_to_the_script>
 		
 		- using virtual robot with middleware:
 			Start choregraphe
